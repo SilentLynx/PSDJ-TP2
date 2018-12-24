@@ -1,8 +1,13 @@
 import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toList;
 
 public class Tests {
 
@@ -79,4 +84,24 @@ public class Tests {
         return sum;
     };
 
+    public static Supplier<List<TransCaixa>> teste5List = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+        List<TransCaixa> ret;
+
+        ret = ltc.stream()
+                .sorted(TransCaixaComparator.transPorData)
+                .collect(toList());
+
+        return ret;
+    };
+
+    public static Supplier<SortedSet<TransCaixa>> teste5Tree = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+        Supplier<SortedSet<TransCaixa>> supplyTreeSetTcx = () -> new TreeSet<>(TransCaixaComparator.transPorData);
+
+        SortedSet<TransCaixa> transOrdData = ltc.stream()
+                .collect(toCollection(supplyTreeSetTcx));
+
+        return transOrdData;
+    };
 }
