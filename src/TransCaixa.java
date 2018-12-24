@@ -22,6 +22,15 @@ public class TransCaixa {
     private final double valor;
     private final LocalDateTime data;
     //
+
+    public TransCaixa(TransCaixa t)
+    {
+        this.codTrans = t.getTrans();
+        this.caixa = t.getCaixa();
+        this.data = t.getData();
+        this.valor = t.getValor();
+    }
+
     public String getTrans() { return codTrans; }
     public String getCaixa() { return caixa; }
     public double getValor() { return valor; }
@@ -32,6 +41,11 @@ public class TransCaixa {
         StringBuilder sb = new StringBuilder();
         sb.append("Trans: " + codTrans + "/" + caixa + "/" + valor + "/" + data.toString());
         return sb.toString();
+    }
+
+    public TransCaixa clone()
+    {
+        return new TransCaixa(this);
     }
 }
 
