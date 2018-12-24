@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 
 public class Tests {
 
-    public static Supplier<Double> teste1Array = () -> {
+    public static Supplier<Double> sumArray = () -> {
             double[] d = new double[1000000];
             int i = 0;
             double sum = 0;
@@ -24,7 +24,28 @@ public class Tests {
             return sum;
     };
 
-    Supplier<Double> teste1DoubleStream = () -> {
+
+    Supplier<Double> avgArray = () -> {
+        double[] d = new double[1000000];
+        int i = 0;
+        double avg = 0;
+
+        List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+        for(TransCaixa t : ltc){
+            d[i] = t.getValor();
+            i++;
+        }
+
+        for(i = 0; i < 1000000; i++){
+            avg += d[i];
+        }
+
+        avg = avg / 1000000;
+
+        return avg;
+    };
+
+    public static Supplier<Double> sumDoubleStream = () -> {
 
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
 
@@ -33,11 +54,29 @@ public class Tests {
         return d;
     };
 
-    Supplier<Double> teste1Stream = () -> {
+    public static Supplier<Double> avgDoubleStream = () -> {
+
+        List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        Double d = ltc.stream().mapToDouble(t -> t.getValor()).average().getAsDouble();
+
+        return d;
+    };
+
+    public static Supplier<Double> sumStream = () -> {
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
 
         double sum = ltc.stream().collect(Collectors.summingDouble(t -> t.getValor()));
 
         return sum;
     };
+
+    public static Supplier<Double> avgStream = () -> {
+        List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        double sum = ltc.stream().collect(Collectors.averagingDouble(t -> t.getValor()));
+
+        return sum;
+    };
+
 }

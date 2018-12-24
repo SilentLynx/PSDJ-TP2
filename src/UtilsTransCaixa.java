@@ -63,6 +63,6 @@ public class UtilsTransCaixa {
             System.out.println("Max. JVM Threads: " + fjPool.getParallelism());
             System.out.println("Threads Potenciais: " + fjPool.getCommonPoolParallelism());
             System.out.println("Pool Size: " + fjPool.getPoolSize());
-            
+
         }
 }

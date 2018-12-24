@@ -1,6 +1,4 @@
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.AbstractMap;
 
 public class Main {
@@ -9,14 +7,20 @@ public class Main {
 
         UtilsTransCaixa.specifications();
 
-        AbstractMap.SimpleEntry<Double, Double> t1 = UtilsTransCaixa.testeBoxGenW(Tests.teste1Array);
+        AbstractMap.SimpleEntry<Double, Double> t1sA = UtilsTransCaixa.testeBoxGenW(Tests.sumArray);
+        AbstractMap.SimpleEntry<Double, Double> t1sDS = UtilsTransCaixa.testeBoxGenW(Tests.sumDoubleStream);
+        AbstractMap.SimpleEntry<Double, Double> t1sS = UtilsTransCaixa.testeBoxGenW(Tests.sumStream);
 
         try {
-            FileOutputStream outFile = new FileOutputStream("results.csv");
-            ObjectOutputStream out = new ObjectOutputStream(outFile);
-            out.writeChars("tempo;resultado\n"+t1.getKey()+";"+t1.getValue());
-            out.flush();
-            out.close();
+            PrintWriter outFile = new PrintWriter(new File("results.csv"));
+            StringBuilder sb = new StringBuilder();
+            sb.append("tempo;resultado\n");
+            sb.append(t1sA.getKey().doubleValue()).append(";").append(t1sA.getValue().doubleValue());
+            sb.append(t1sDS.getKey().doubleValue()).append(";").append(t1sDS.getValue().doubleValue());
+            sb.append(t1sS.getKey().doubleValue()).append(";").append(t1sS.getValue().doubleValue());
+
+           outFile.write(sb.toString());
+           outFile.close();
         }
         catch(IOException e){
             System.out.println("ERRO!");
