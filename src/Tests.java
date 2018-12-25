@@ -1,4 +1,5 @@
 import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
 import java.util.function.BinaryOperator;
@@ -212,7 +213,44 @@ public class Tests {
 
         return mapaTxPorDH;
     };
-    // Não faço a mínima como fazer o 07. Tenho de investigar um pouco
+
+    public static Supplier<Double> teste07SetStream = () -> {
+
+        double ret = 0.0;
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        ret = ltc.stream()
+                .mapToDouble(t -> t.getValor())
+                .sum();
+
+        return ret;
+    };
+
+    public static Supplier<Double> teste07SetParallel = () -> {
+
+        double ret = 0.0;
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        ret = ltc.parallelStream()
+                .mapToDouble(t -> t.getValor())
+                .sum();
+
+        return ret;
+    };
+
+    public static Supplier<Double> teste07SetFE = () -> {
+
+        double ret = 0.0;
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        for(TransCaixa t : ltc)
+        {
+            ret += t.getValor();
+        }
+
+        return ret;
+    };
+    // falta usar o spliterator
 
     public static Supplier<String> teste08 = () -> {
         String cod = null;
