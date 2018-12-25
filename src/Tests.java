@@ -1,5 +1,7 @@
+import java.time.DayOfWeek;
 import java.time.Month;
 import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
@@ -150,12 +152,98 @@ public class Tests {
                 listaB.add(t.clone());
                 Map<Integer, List<TransCaixa>> map = new HashMap<>();
                 map.put(t.getData().getHour(),listaB);
-                mapaTxPorMDH.get(t.getData().getMonth()).put(t.getData().getDayOfMonth(), map);
-                Map<Month, Map<Integer, List<TransCaixa>>> mapM = new HashMap<>();
-                mapM.put(t.getData().getMonth(), map);
+
+                Map<Integer, Map<Integer, List<TransCaixa>>> mapAux = new HashMap<>();
+                mapAux.put(t.getData().getDayOfMonth(), map);
+
+                Map<Month, Map<Integer, Map<Integer,List<TransCaixa>>>> mapM = new HashMap<>();
+                mapM.put(t.getData().getMonth(), mapAux);
+
+                mapaTxPorMDH = mapM;
             }
         }
 
         return mapaTxPorMDH;
     };
+
+    public static Supplier<Map<DayOfWeek, Map<Integer, List<TransCaixa>>>> teste6Semana = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+        Map<DayOfWeek, Map<Integer, List<TransCaixa>>> mapaTxPorDH =
+                ltc.stream()
+                        .collect(groupingBy(t -> t.getData().getDayOfWeek(),
+                                        groupingBy(t -> t.getData().getHour())));
+
+        return mapaTxPorDH;
+    };
+
+    public static Supplier<Map<DayOfWeek, Map<Integer, List<TransCaixa>>>> teste6SemanaFor = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+        Map<DayOfWeek, Map<Integer, List<TransCaixa>>> mapaTxPorDH = new HashMap<>();
+
+        for(TransCaixa t : ltc)
+        {
+            if(mapaTxPorDH.containsKey(t.getData().getDayOfWeek()))
+            {
+                if(mapaTxPorDH.get(t.getData().getDayOfWeek()).containsKey(t.getData().getHour()))
+                {
+                    mapaTxPorDH.get(t.getData().getDayOfWeek()).get(t.getData().getHour()).add(t.clone());
+                }
+                else
+                {
+                    List<TransCaixa> lista = new ArrayList<>();
+                    lista.add(t.clone());
+                    mapaTxPorDH.get(t.getData().getDayOfWeek()).put(t.getData().getHour(), lista);
+                }
+            }
+            else
+            {
+                List<TransCaixa> listaA = new ArrayList<>();
+                listaA.add(t.clone()); // lista
+
+                Map<Integer, List<TransCaixa>> map = new HashMap<>(); // Hora, Lista
+                map.put(t.getData().getHour(), listaA);
+
+                Map<DayOfWeek, Map<Integer, List<TransCaixa>>> mapA = new HashMap<>(); // Dia hora Lista
+                mapA.put(t.getData().getDayOfWeek(), map);
+
+                mapaTxPorDH = mapA;
+            }
+        }
+
+        return mapaTxPorDH;
+    };
+    // Não faço a mínima como fazer o 07. Tenho de investigar um pouco
+
+    public static Supplier<String> teste08 = () -> {
+        String cod = null;
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+        double valor = 0.0;
+
+        for(TransCaixa t : ltc)
+        {
+            if(t.getData().getHour() >= 16 && t.getData().getHour() <= 22)
+            {
+                if(t.getValor() > valor)
+                {
+                    valor = t.getValor();
+                    cod = t.getTrans();
+                }
+            }
+        }
+
+        return cod;
+    };
+
+    public static Supplier<String> teste08Stream = () -> {
+        String cod = null;
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        cod = ltc.stream().filter(t -> t.getData().getHour() >= 16 && t.getData().getHour() <= 22)
+                          .max(TransCaixaComparator.transPorValor)
+                          .get()
+                          .getTrans();
+
+        return cod;
+    };
+
 }

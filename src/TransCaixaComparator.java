@@ -23,4 +23,12 @@ public class TransCaixaComparator {
                 else if(ldt1.isBefore(ldt2)) return -1;
                 else return 1 ;
             };
+
+    static Comparator<TransCaixa> transPorValor =
+            (TransCaixa t1, TransCaixa t2) ->  { double dt1 = t1.getValor();
+                double dt2 = t2.getValor();
+                if(dt1 == dt2) return 0;
+                else if(dt1 < dt2) return -1;
+                else return 1;
+            };
 }
