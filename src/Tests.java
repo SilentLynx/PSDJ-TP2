@@ -86,7 +86,7 @@ public class Tests {
     };
 
     public static Supplier<List<TransCaixa>> teste5List = () -> {
-        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa2M.txt");
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
         List<TransCaixa> ret;
 
         ret = ltc.stream()
@@ -97,7 +97,7 @@ public class Tests {
     };
 
     public static Supplier<SortedSet<TransCaixa>> teste5Tree = () -> {
-        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa2M.txt");
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
         Supplier<SortedSet<TransCaixa>> supplyTreeSetTcx = () -> new TreeSet<>(TransCaixaComparator.transPorData);
 
         SortedSet<TransCaixa> transOrdData = ltc.stream()
@@ -234,7 +234,7 @@ public class Tests {
 
     public static Supplier<Double> teste07SetFE = () -> {
 
-        double ret = 0.0;
+        double ret = 0;
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
 
         for(TransCaixa t : ltc)
@@ -267,7 +267,7 @@ public class Tests {
     };
 
     public static Supplier<String> teste08Stream = () -> {
-        String cod = null;
+        String cod;
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
 
         cod = ltc.stream().filter(t -> t.getData().getHour() >= 16 && t.getData().getHour() <= 22)
