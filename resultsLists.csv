@@ -1,0 +1,7 @@
+Pergunta; Tipo; Tempo; Tamanho 
+5;List;5.257030229;2000000
+5;Sorted Tree;5.258257805;513039
+6;Original;1.331584859;12
+6;Java 7;1.229942334;12
+6 -> Semana;Java 7;1.256615235;7
+6 -> Semana;Java 8;1.086316338;7

@@ -86,7 +86,7 @@ public class Tests {
     };
 
     public static Supplier<List<TransCaixa>> teste5List = () -> {
-        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa2M.txt");
         List<TransCaixa> ret;
 
         ret = ltc.stream()
@@ -97,7 +97,7 @@ public class Tests {
     };
 
     public static Supplier<SortedSet<TransCaixa>> teste5Tree = () -> {
-        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa2M.txt");
         Supplier<SortedSet<TransCaixa>> supplyTreeSetTcx = () -> new TreeSet<>(TransCaixaComparator.transPorData);
 
         SortedSet<TransCaixa> transOrdData = ltc.stream()
@@ -127,7 +127,7 @@ public class Tests {
             {
                 if(mapaTxPorMDH.get(t.getData().getMonth()).containsKey(t.getData().getDayOfMonth()))
                 {
-                    if(mapaTxPorMDH.get(t.getData().getDayOfMonth()).containsKey(t.getData().getHour()))
+                    if(mapaTxPorMDH.get(t.getData().getMonth()).get(t.getData().getDayOfMonth()).containsKey(t.getData().getHour()))
                     {
                         mapaTxPorMDH.get(t.getData().getMonth()).get(t.getData().getDayOfMonth()).get(t.getData().getHour()).add(t.clone());
                     }
@@ -157,10 +157,7 @@ public class Tests {
                 Map<Integer, Map<Integer, List<TransCaixa>>> mapAux = new HashMap<>();
                 mapAux.put(t.getData().getDayOfMonth(), map);
 
-                Map<Month, Map<Integer, Map<Integer,List<TransCaixa>>>> mapM = new HashMap<>();
-                mapM.put(t.getData().getMonth(), mapAux);
-
-                mapaTxPorMDH = mapM;
+                mapaTxPorMDH.put(t.getData().getMonth(),mapAux);
             }
         }
 
@@ -204,10 +201,7 @@ public class Tests {
                 Map<Integer, List<TransCaixa>> map = new HashMap<>(); // Hora, Lista
                 map.put(t.getData().getHour(), listaA);
 
-                Map<DayOfWeek, Map<Integer, List<TransCaixa>>> mapA = new HashMap<>(); // Dia hora Lista
-                mapA.put(t.getData().getDayOfWeek(), map);
-
-                mapaTxPorDH = mapA;
+                mapaTxPorDH.put(t.getData().getDayOfWeek(), map);
             }
         }
 
