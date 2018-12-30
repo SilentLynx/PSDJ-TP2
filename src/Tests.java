@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
@@ -110,6 +111,8 @@ public class Tests {
         List<TransCaixa> seq = sorted.subList(0, (int) (0.3 * ltc.size()));
 
         List<TransCaixa> end = sorted.subList((int) (0.7 * ltc.size()), ltc.size());
+
+        return new AbstractMap.SimpleEntry(seq, end);
     };
 
     Supplier<AbstractMap.SimpleEntry> teste2SeqStream = () -> {
@@ -135,6 +138,41 @@ public class Tests {
 
         return new AbstractMap.SimpleEntry(sec, end);
     };
+
+    Supplier<double[]> teste3Array = () -> {
+        double[] d = new double[1000000];
+        Random r = new Random();
+
+        for(int i = 0; i < d.length; i++){
+            d[i] = r.nextInt(d.length - 1);
+            for(int j = 0; j < i; j++){
+                if(d[j] == d[i])
+                    i--;
+            }
+        }
+
+        return d;
+    };
+
+    Supplier<List> teste3List = () -> {
+        List<Integer> l = new ArrayList<>(1000000);
+        Random r = new Random();
+        int i = 0;
+
+        while(i < l.size()){
+            int j = r.nextInt(l.size() - 1);
+            if(l.contains(j)){
+                l.add(j);
+                i++;
+            }
+        }
+
+        return l;
+    };
+
+    /*Supplier<IntStream> teste3IntStream = () -> {
+        IntStream s;
+    };*/
 
     public static Supplier<List<TransCaixa>> teste5List = () -> {
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
