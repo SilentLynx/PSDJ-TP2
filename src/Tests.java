@@ -5,6 +5,7 @@ import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toCollection;
@@ -13,11 +14,12 @@ import static java.util.stream.Collectors.toList;
 public class Tests {
 
     public static Supplier<Double> sumArray = () -> {
-            double[] d = new double[1000000];
             int i = 0;
             double sum = 0;
 
             List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+            double[] d = new double[ltc.size()];
+
             for(TransCaixa t : ltc){
                 d[i] = t.getValor();
                 i++;
@@ -83,6 +85,55 @@ public class Tests {
         double sum = ltc.stream().collect(Collectors.averagingDouble(t -> t.getValor()));
 
         return sum;
+    };
+
+    Supplier<AbstractMap.SimpleEntry> teste2List = () -> {
+        List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        ltc.sort(TransCaixaComparator.transPorData);
+
+        List<TransCaixa> sec = ltc.subList(0, (int) (0.3 * ltc.size()));
+
+        List<TransCaixa> end = ltc.subList((int) (0.7 * ltc.size()), ltc.size());
+
+        return new AbstractMap.SimpleEntry(sec, end);
+    };
+
+    Supplier<AbstractMap.SimpleEntry> teste2TreeSet = () -> {
+        List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        TreeSet<TransCaixa> tsec = new TreeSet<>(TransCaixaComparator.transPorData);
+        tsec.addAll(ltc);
+
+        List<TransCaixa> sorted = new ArrayList<>(tsec);
+
+        List<TransCaixa> seq = sorted.subList(0, (int) (0.3 * ltc.size()));
+
+        List<TransCaixa> end = sorted.subList((int) (0.7 * ltc.size()), ltc.size());
+    };
+
+    Supplier<AbstractMap.SimpleEntry> teste2SeqStream = () -> {
+        List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        Stream<TransCaixa> sorted = ltc.stream().sorted(TransCaixaComparator.transPorData);
+
+        List<TransCaixa> sec = sorted.limit((long) (0.3 * ltc.size())).collect(toList());
+
+        List<TransCaixa> end = sorted.skip((long) (0.7 * ltc.size())).collect(toList());
+
+        return new AbstractMap.SimpleEntry(sec, end);
+    };
+
+    Supplier<AbstractMap.SimpleEntry> teste2ParStream = () -> {
+        List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        Stream<TransCaixa> sorted = ltc.parallelStream().sorted(TransCaixaComparator.transPorData);
+
+        List<TransCaixa> sec = sorted.limit((long) (0.3 * ltc.size())).collect(toList());
+
+        List<TransCaixa> end = sorted.skip((long) (0.7 * ltc.size())).collect(toList());
+
+        return new AbstractMap.SimpleEntry(sec, end);
     };
 
     public static Supplier<List<TransCaixa>> teste5List = () -> {
