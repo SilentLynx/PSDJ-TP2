@@ -2,6 +2,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.*;
+import java.util.function.BiFunction;
 import java.util.function.BinaryOperator;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -173,6 +174,65 @@ public class Tests {
     /*Supplier<IntStream> teste3IntStream = () -> {
         IntStream s;
     };*/
+
+    public static double mult(double i, double j){
+        return i * j;
+    }
+
+    public static BiFunction<Double, Double,Double> bi = (i, j) -> {
+        return i * j;
+    };
+
+    public static Teste4Lambda lambda = (i, j) -> i * j;
+
+    public static Supplier<double[]> teste4MethodStreams = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        double[] d = ltc.stream().mapToDouble(tc -> mult(tc.getValor(), tc.getValor())).toArray();
+
+        return d;
+    };
+
+    public static Supplier<double[]> teste4BiFStreams = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        double[] d = ltc.stream().mapToDouble(tc -> bi.apply(tc.getValor(),tc.getValor())).toArray();
+
+        return d;
+    };
+
+    public static Supplier<double[]> teste4LambdaStreams = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        double[] d = ltc.parallelStream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
+
+        return d;
+    };
+
+    public static Supplier<double[]> teste4MethodParStreams = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        double[] d = ltc.parallelStream().mapToDouble(tc -> mult(tc.getValor(), tc.getValor())).toArray();
+
+        return d;
+    };
+
+    public static Supplier<double[]> teste4BiFParStreams = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        double[] d = ltc.parallelStream().mapToDouble(tc -> bi.apply(tc.getValor(),tc.getValor())).toArray();
+
+        return d;
+    };
+
+    public static Supplier<double[]> teste4LambdaParStreams = () -> {
+        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
+
+        double[] d = ltc.parallelStream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
+
+        return d;
+    };
+
 
     public static Supplier<List<TransCaixa>> teste5List = () -> {
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
@@ -367,4 +427,8 @@ public class Tests {
         return cod;
     };
 
+}
+
+interface Teste4Lambda {
+    double mult(double i, double j);
 }
