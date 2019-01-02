@@ -140,40 +140,58 @@ public class Tests {
         return new AbstractMap.SimpleEntry(sec, end);
     };
 
-    Supplier<double[]> teste3Array = () -> {
-        double[] d = new double[1000000];
+    Supplier<int[]> teste3Array = () -> {
+        int size = 1000000;
+        int[] d = new int[size];
         Random r = new Random();
 
-        for(int i = 0; i < d.length; i++){
-            d[i] = r.nextInt(d.length - 1);
-            for(int j = 0; j < i; j++){
-                if(d[j] == d[i])
-                    i--;
+
+        for(int i = 0; i < size; i++){
+            do
+                d[i] = r.nextInt(10000);
+            while(d[i] == 0);
+        }
+
+        for(int i = 0; i < size; i++){
+            for(int j = i + 1; j < size; j++){
+                if(d[j] == d[i]){
+                    for(int k = j; k < size - 1; k++)
+                        d[k] = d[k + 1];
+                    size--;
+                }
             }
         }
 
-        return d;
+        int[] ret = new int[size];
+        System.arraycopy(d, 0, ret, 0, size);
+
+        return ret;
     };
 
     Supplier<List> teste3List = () -> {
         List<Integer> l = new ArrayList<>(1000000);
         Random r = new Random();
-        int i = 0;
+        int j;
 
-        while(i < l.size()){
-            int j = r.nextInt(l.size() - 1);
-            if(l.contains(j)){
-                l.add(j);
-                i++;
-            }
+        for(int i = 0; i < 1000000; i++) {
+            do
+                j = r.nextInt(10000);
+            while (j == 0);
+            l.add(j);
         }
+
+        l = new ArrayList<>(new TreeSet<>(l));
 
         return l;
     };
 
-    /*Supplier<IntStream> teste3IntStream = () -> {
-        IntStream s;
-    };*/
+    Supplier<IntStream> teste3IntStream = () -> {
+        IntStream s = new Random().ints(1000000, 1, 10000);
+
+        s.distinct();
+
+        return s;
+    };
 
     public static double mult(double i, double j){
         return i * j;
