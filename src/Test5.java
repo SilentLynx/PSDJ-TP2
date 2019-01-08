@@ -35,6 +35,7 @@ public class Test5 {
 
         try {
             PrintWriter outFile = new PrintWriter(new File("resultsTeste5.csv"));
+
             StringBuilder sb = new StringBuilder();
 
             sb.append("Tipo de Estrutura; No.Casos; Tempo; Tamanho \n");
