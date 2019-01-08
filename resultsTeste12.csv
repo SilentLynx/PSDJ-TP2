@@ -1,0 +1,17 @@
+Tipo de Estrutura; No.Casos; Tempo; Tamanho 
+Map(Count);1M;1.752901074;50
+Map(Parallel Count);1M;1.7222063;50
+Map;1M;1.976154666;50
+Concurrent Map;1M;1.731692325;50
+Map(Count);2M;3.443848492;50
+Map(Parallel Count);2M;3.866891679;50
+Map;2M;3.716183088;50
+Concurrent Map;2M;3.402475525;50
+Map(Count);4M;6.385328833;50
+Map(Parallel Count);4M;6.596957603;50
+Map;4M;6.588096084;50
+Concurrent Map;4M;7.231217038;50
+Map(Count);6M;9.601699827;30
+Map(Parallel Count);6M;10.04710919;30
+Map;6M;10.61866493;30
+Concurrent Map;6M;12.107425391;30

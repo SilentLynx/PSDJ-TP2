@@ -114,7 +114,7 @@ public class Test4 {
     public static Supplier<double[]> teste4LambdaStreams1M = () -> {
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
 
-        double[] d = ltc.parallelStream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
+        double[] d = ltc.stream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
 
         return d;
     };
@@ -162,7 +162,7 @@ public class Test4 {
     public static Supplier<double[]> teste4LambdaStreams2M = () -> {
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa2M.txt");
 
-        double[] d = ltc.parallelStream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
+        double[] d = ltc.stream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
 
         return d;
     };
@@ -210,7 +210,7 @@ public class Test4 {
     public static Supplier<double[]> teste4LambdaStreams4M = () -> {
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa4M.txt");
 
-        double[] d = ltc.parallelStream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
+        double[] d = ltc.stream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
 
         return d;
     };
@@ -258,7 +258,7 @@ public class Test4 {
     public static Supplier<double[]> teste4LambdaStreams6M = () -> {
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa6M.txt");
 
-        double[] d = ltc.parallelStream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
+        double[] d = ltc.stream().mapToDouble(tc -> lambda.mult(tc.getValor(),tc.getValor())).toArray();
 
         return d;
     };
