@@ -287,3 +287,7 @@ public class Test4 {
         return d;
     };
 }
+
+interface Teste4Lambda {
+    double mult(double i, double j);
+}

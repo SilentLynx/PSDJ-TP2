@@ -35,7 +35,7 @@ public class Test7 {
         AbstractMap.SimpleEntry<Double,Double> test07Spliterator_6M = UtilsTransCaixa.testeBoxGenW(teste07Spliterator_6M);
 
         try {
-            PrintWriter outFile = new PrintWriter(new File("resultsTest7.csv"));
+            PrintWriter outFile = new PrintWriter(new File("resultsTeste7.csv"));
             StringBuilder sb = new StringBuilder();
 
             sb.append("Versao Java; Tamanho Data Set; No.Casos; Tempo; Tamanho/Resultado \n");
