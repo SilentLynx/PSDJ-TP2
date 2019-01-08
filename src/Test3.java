@@ -58,6 +58,7 @@ public class Test3 {
         }
     }
 
+    /*
     public static Supplier<int[]> teste3Array1M = () -> {
         int size = 1000000;
         int[] d = new int[size];
@@ -82,6 +83,23 @@ public class Test3 {
 
         int[] ret = new int[size];
         System.arraycopy(d, 0, ret, 0, size);
+
+        return ret;
+    };*/
+
+    public static Supplier<int[]> teste3Array1M = () -> {
+        int size = 1000000;
+        int[] d = new int[size];
+        Random r = new Random();
+
+
+        for(int i = 0; i < size; i++){
+            do
+                d[i] = r.nextInt(10000);
+            while(d[i] == 0);
+        }
+
+        int[] ret = Arrays.stream(d).distinct().toArray();
 
         return ret;
     };
@@ -123,18 +141,7 @@ public class Test3 {
             while(d[i] == 0);
         }
 
-        for(int i = 0; i < size; i++){
-            for(int j = i + 1; j < size; j++){
-                if(d[j] == d[i]){
-                    for(int k = j; k < size - 1; k++)
-                        d[k] = d[k + 1];
-                    size--;
-                }
-            }
-        }
-
-        int[] ret = new int[size];
-        System.arraycopy(d, 0, ret, 0, size);
+        int[] ret = Arrays.stream(d).distinct().toArray();
 
         return ret;
     };
@@ -176,18 +183,7 @@ public class Test3 {
             while(d[i] == 0);
         }
 
-        for(int i = 0; i < size; i++){
-            for(int j = i + 1; j < size; j++){
-                if(d[j] == d[i]){
-                    for(int k = j; k < size - 1; k++)
-                        d[k] = d[k + 1];
-                    size--;
-                }
-            }
-        }
-
-        int[] ret = new int[size];
-        System.arraycopy(d, 0, ret, 0, size);
+        int[] ret = Arrays.stream(d).distinct().toArray();
 
         return ret;
     };
@@ -229,18 +225,7 @@ public class Test3 {
             while(d[i] == 0);
         }
 
-        for(int i = 0; i < size; i++){
-            for(int j = i + 1; j < size; j++){
-                if(d[j] == d[i]){
-                    for(int k = j; k < size - 1; k++)
-                        d[k] = d[k + 1];
-                    size--;
-                }
-            }
-        }
-
-        int[] ret = new int[size];
-        System.arraycopy(d, 0, ret, 0, size);
+        int[] ret = Arrays.stream(d).distinct().toArray();
 
         return ret;
     };

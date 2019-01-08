@@ -43,7 +43,7 @@ public class Test4 {
         AbstractMap.SimpleEntry<Double, double[]> teste4LPS_6M = UtilsTransCaixa.testeBoxGenW(teste4LambdaParStreams6M);
 
         try{
-            PrintWriter outFile = new PrintWriter(new File("resultsTeste3.csv"));
+            PrintWriter outFile = new PrintWriter(new File("resultsTeste4.csv"));
             StringBuilder sb = new StringBuilder();
 
             sb.append("Multiplicador; Tipo de Streams; No.Casos; Tempo; Tamanho/Resultado \n");

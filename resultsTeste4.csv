@@ -1,0 +1,25 @@
+Multiplicador; Tipo de Streams; No.Casos; Tempo; Tamanho/Resultado 
+Metodo;Sequencial;1M;1.61335465;[D@52a86356
+BiFunctor;Sequencial;1M;1.571202827;[D@5ce81285
+Lambda;Sequencial;1M;1.768188852;[D@78c03f1f
+Metodo;Paralela;1M;1.545507263;[D@5ec0a365
+BiFunctor;Paralela;1M;1.627514212;[D@4fe3c938
+Lambda;Paralela;1M;1.617469209;[D@5383967b
+Metodo;Sequencial;2M;2.993505053;[D@2ac273d3
+BiFunctor;Sequencial;2M;3.403039239;[D@71423665
+Lambda;Sequencial;2M;3.107006553;[D@20398b7c
+Metodo;Paralela;2M;2.939009159;[D@6fc6f14e
+BiFunctor;Paralela;2M;3.101350861;[D@56235b8e
+Lambda;Paralela;2M;3.132276962;[D@3632be31
+Metodo;Sequencial;4M;5.999993684;[D@5abca1e0
+BiFunctor;Sequencial;4M;6.654051398;[D@2286778
+Lambda;Sequencial;4M;5.956947735;[D@4e9ba398
+Metodo;Paralela;4M;5.899570109;[D@6d7b4f4c
+BiFunctor;Paralela;4M;6.818336492;[D@527740a2
+Lambda;Paralela;4M;6.522015632;[D@13a5fe33
+Metodo;Sequencial;6M;9.223138323;[D@3108bc
+BiFunctor;Sequencial;6M;9.576038608;[D@370736d9
+Lambda;Sequencial;6M;9.109726039;[D@5f9d02cb
+Metodo;Paralela;6M;9.586786278;[D@63753b6d
+BiFunctor;Paralela;6M;9.704943945;[D@6b09bb57
+Lambda;Paralela;6M;9.00696984;[D@6536e911
