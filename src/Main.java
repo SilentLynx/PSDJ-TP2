@@ -57,7 +57,5 @@ public class Main {
                 break;
             default: System.out.println("Número de teste inválido");
         }
-
-        //Test3_1.execute();
     }
 }
