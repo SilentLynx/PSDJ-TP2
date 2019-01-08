@@ -59,6 +59,7 @@ public class Test7 {
             sb.append("9").append(";").append("Total").append(";").append("6M").append(";").append(test07stream_6M.getKey().doubleValue()).append(";").append(test07parallel_6M.getValue().doubleValue()).append("\n");
             sb.append("7").append(";").append("C/Spliterator").append(";").append("6M").append(";").append(test07Spliterator_6M.getKey().doubleValue()).append(";").append(test07Spliterator_6M.getValue().doubleValue()).append("\n");
 
+            outFile.write(sb.toString());
             outFile.close();
         }
         catch(IOException e){
@@ -105,6 +106,9 @@ public class Test7 {
 
     public static Supplier<Double> teste07Spliterator_1M = () -> {
         AtomicReference<Double> ret = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret3 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret2 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
 
         Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
@@ -118,12 +122,12 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa4 = null;
         if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa2.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa3.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa4.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
+        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
 
-        return ret.get();
+        return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
 
 
@@ -166,6 +170,9 @@ public class Test7 {
 
     public static Supplier<Double> teste07Spliterator_2M = () -> {
         AtomicReference<Double> ret = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret3 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret2 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa2M.txt");
 
         Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
@@ -179,12 +186,12 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa4 = null;
         if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa2.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa3.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa4.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
+        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
 
-        return ret.get();
+        return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
 
 
@@ -227,6 +234,9 @@ public class Test7 {
 
     public static Supplier<Double> teste07Spliterator_4M = () -> {
         AtomicReference<Double> ret = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret3 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret2 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa4M.txt");
 
         Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
@@ -240,12 +250,12 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa4 = null;
         if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa2.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa3.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa4.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
+        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
 
-        return ret.get();
+        return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
 
 
@@ -288,6 +298,9 @@ public class Test7 {
 
     public static Supplier<Double> teste07Spliterator_6M = () -> {
         AtomicReference<Double> ret = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret3 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret2 = new AtomicReference<>((double) 0);
+        AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa6M.txt");
 
         Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
@@ -301,11 +314,11 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa4 = null;
         if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa2.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa3.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
-        splitTxCaixa4.forEachRemaining(v -> ret.updateAndGet(v1 ->new Double((double) (v1 + v.getValor()))));
+        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
 
-        return ret.get();
+        return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
 }

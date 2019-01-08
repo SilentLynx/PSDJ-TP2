@@ -51,34 +51,11 @@ public class Main {
                 System.out.println("Executando teste 10...");
                 Test10.execute();
                 break;
+            case 12:
+                System.out.println("Executando teste 12...");
+                Test12.execute();
+                break;
             default: System.out.println("Número de teste inválido");
         }
-
-
-        /*
-        // Perguntas 5,6,7,8
-
-        AbstractMap.SimpleEntry<Double,Double> test07stream = UtilsTransCaixa.testeBoxGenW(Tests.teste07SetStream);
-        AbstractMap.SimpleEntry<Double,Double> test07parallel = UtilsTransCaixa.testeBoxGenW(Tests.teste07SetParallel);
-        AbstractMap.SimpleEntry<Double,Double> test07fe = UtilsTransCaixa.testeBoxGenW(Tests.teste07SetFE);
-
-        try {
-            PrintWriter outFile = new PrintWriter(new File("resultsLists.csv"));
-            StringBuilder sb = new StringBuilder();
-
-            sb.append("Pergunta; Tipo; Tempo; Tamanho/Resultado \n");
-
-            sb.append("7").append(";").append("stream").append(";").append(test07stream.getKey().doubleValue()).append(";").append(test07stream.getValue().doubleValue()).append("\n");
-            sb.append("7").append(";").append("Parallel stream").append(";").append(test07stream.getKey().doubleValue()).append(";").append(test07parallel.getValue().doubleValue()).append("\n");
-            sb.append("7").append(";").append("For each").append(";").append(test07stream.getKey().doubleValue()).append(";").append(test07fe.getValue().doubleValue()).append("\n");
-            sb.append("8").append(";").append("Ciclo for").append(";").append(test08.getKey().doubleValue()).append(";").append(test08.getValue()).append("\n");
-            sb.append("8").append(";").append("Streams").append(";").append(test08stream.getKey().doubleValue()).append(";").append(test08stream.getValue()).append("\n");
-            outFile.write(sb.toString());
-           outFile.close();
-        }
-        catch(IOException e){
-            System.out.println("ERRO!");
-        }*/
-
     }
 }
