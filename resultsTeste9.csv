@@ -1,0 +1,9 @@
+Tipo de Estrutura; No.Casos; Tempo; Tamanho 
+List;1M;2.126064661;1
+List Stream;1M;2.057190115;1
+List;2M;5.861407311;1
+List Stream;2M;4.828929022;1
+List;4M;7.999498263;1
+List Stream;4M;7.439000869;1
+List;6M;10.760791489;1
+List Stream;6M;11.149722486;1

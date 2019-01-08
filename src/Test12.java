@@ -37,7 +37,7 @@ public class Test12 {
         AbstractMap.SimpleEntry<Double, ConcurrentHashMap<String, ConcurrentHashMap<Month, Double>>> test12Concurrent_6M = UtilsTransCaixa.testeBoxGenW(teste12Concurrent_6M);
 
         try {
-            PrintWriter outFile = new PrintWriter(new File("resultsTest12.csv"));
+            PrintWriter outFile = new PrintWriter(new File("resultsTeste12.csv"));
             StringBuilder sb = new StringBuilder();
 
             sb.append("Tipo de Estrutura; No.Casos; Tempo; Tamanho \n");

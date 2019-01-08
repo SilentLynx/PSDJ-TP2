@@ -25,7 +25,7 @@ public class Test10 {
         AbstractMap.SimpleEntry<Double, Map<Month, Double>> test10S_6M = UtilsTransCaixa.testeBoxGenW(teste10Stream_6M);
 
         try {
-            PrintWriter outFile = new PrintWriter(new File("resultsTest10.csv"));
+            PrintWriter outFile = new PrintWriter(new File("resultsTeste10.csv"));
             StringBuilder sb = new StringBuilder();
 
             sb.append("Tipo de Estrutura; No.Casos; Tempo; Tamanho \n");
