@@ -1,10 +1,4 @@
-import java.io.*;
-import java.time.DayOfWeek;
-import java.time.Month;
-import java.util.AbstractMap;
-import java.util.List;
-import java.util.Map;
-import java.util.SortedSet;
+import java.util.*;
 
 public class Main {
 
@@ -12,11 +6,32 @@ public class Main {
 
         UtilsTransCaixa.specifications();
 
-        // Perguntas 1,2,3,4
-        AbstractMap.SimpleEntry<Double, Double> t1sA = UtilsTransCaixa.testeBoxGenW(Tests.sumArray);
-        AbstractMap.SimpleEntry<Double, Double> t1sDS = UtilsTransCaixa.testeBoxGenW(Tests.sumDoubleStream);
-        AbstractMap.SimpleEntry<Double, Double> t1sS = UtilsTransCaixa.testeBoxGenW(Tests.sumStream);
+        System.out.print("\n\nEscolha o teste para correr (1-12): ");
+        Scanner s = new Scanner(System.in);
+        int test = s.nextInt();
 
+        switch(test){
+            case 1:
+                System.out.println("Executando teste 1...");
+                Test1.execute();
+                break;
+            case 2:
+                System.out.println("Executando teste 2...");
+                Test2.execute();
+                break;
+            case 3:
+                System.out.println("Executando teste 3...");
+                Test3.execute();
+                break;
+            case 4:
+                System.out.println("Executando teste 4...");
+                Test4.execute();
+                break;
+            default: System.out.println("Número de teste inválido");
+        }
+
+
+        /*
         // Perguntas 5,6,7,8
         AbstractMap.SimpleEntry<Double, List<TransCaixa>> test05List = UtilsTransCaixa.testeBoxGenW(Tests.teste5List);
         AbstractMap.SimpleEntry<Double, SortedSet<TransCaixa>> test05Tree = UtilsTransCaixa.testeBoxGenW(Tests.teste5Tree);
@@ -54,7 +69,7 @@ public class Main {
         }
         catch(IOException e){
             System.out.println("ERRO!");
-        }
+        }*/
 
     }
 }
