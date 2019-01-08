@@ -34,7 +34,7 @@ public class Test5 {
         AbstractMap.SimpleEntry<Double, SortedSet<TransCaixa>> test5T_6M = UtilsTransCaixa.testeBoxGenW(teste5T_6M);
 
         try {
-            PrintWriter outFile = new PrintWriter(new File("resultsLists.csv"));
+            PrintWriter outFile = new PrintWriter(new File("resultsTeste3.csv"));
             StringBuilder sb = new StringBuilder();
 
             sb.append("Tipo de Estrutura; No.Casos; Tempo; Tamanho \n");
