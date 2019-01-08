@@ -27,6 +27,11 @@ public class Main {
                 System.out.println("Executando teste 4...");
                 Test4.execute();
                 break;
+            case 5:
+                System.out.println("Executando teste 5...");
+                Test5.execute();
+                break;
+
             default: System.out.println("Número de teste inválido");
         }
 
