@@ -40,7 +40,7 @@ public class Test6 {
         AbstractMap.SimpleEntry<Double, Map<DayOfWeek, Map<Integer, List<TransCaixa>>>> test06DayOfWeekJ7_6M = UtilsTransCaixa.testeBoxGenW(teste6SemanaFor_6M);
 
         try {
-            PrintWriter outFile = new PrintWriter(new File("resultsTeste3.csv"));
+            PrintWriter outFile = new PrintWriter(new File("resultsTeste6.csv"));
             StringBuilder sb = new StringBuilder();
 
             sb.append("Versao do Java; No.Casos; Tempo; Tamanho \n");

@@ -1,9 +1,0 @@
-Versao do Java; Tamanho Input; Tempo; Tamanho/Resultado 
-7;1M;1.480832123;null
-8;1M;1.372039902;Optional.empty
-7;2M;2.75358978;null
-8;2M;2.747341718;Optional.empty
-7;4M;5.491286315;T3599778
-8;4M;5.087303744;Optional[T3599778]
-7;6M;7.47314275;T2672424
-8;6M;7.277938345;Optional[T2672424]
