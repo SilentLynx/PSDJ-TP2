@@ -16,26 +16,7 @@ import static java.util.stream.Collectors.toList;
 public class Tests {
 
 
-    public static Supplier<List<TransCaixa>> teste5List = () -> {
-        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
-        List<TransCaixa> ret;
 
-        ret = ltc.stream()
-                .sorted(TransCaixaComparator.transPorData)
-                .collect(toList());
-
-        return ret;
-    };
-
-    public static Supplier<SortedSet<TransCaixa>> teste5Tree = () -> {
-        List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
-        Supplier<SortedSet<TransCaixa>> supplyTreeSetTcx = () -> new TreeSet<>(TransCaixaComparator.transPorData);
-
-        SortedSet<TransCaixa> transOrdData = ltc.stream()
-                .collect(toCollection(supplyTreeSetTcx));
-
-        return transOrdData;
-    };
 
     public static Supplier<Map<Month, Map<Integer,Map<Integer, List<TransCaixa>>>>> teste6Original = () -> {
         List<TransCaixa> ltc =  UtilsTransCaixa.setup("TransCaixa1M.txt");
