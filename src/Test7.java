@@ -118,16 +118,13 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa3 = null;
-        if (splitTxCaixa2 != null) splitTxCaixa3 = splitTxCaixa2.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa3 = splitTxCaixa.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa4 = null;
-        if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa1.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
 
         return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
@@ -184,16 +181,13 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa3 = null;
-        if (splitTxCaixa2 != null) splitTxCaixa3 = splitTxCaixa2.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa3 = splitTxCaixa.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa4 = null;
-        if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa1.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
 
         return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
@@ -250,16 +244,13 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa3 = null;
-        if (splitTxCaixa2 != null) splitTxCaixa3 = splitTxCaixa2.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa3 = splitTxCaixa.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa4 = null;
-        if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa1.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
 
         return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
@@ -316,17 +307,13 @@ public class Test7 {
         Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa3 = null;
-        if (splitTxCaixa2 != null) splitTxCaixa3 = splitTxCaixa2.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa3 = splitTxCaixa.trySplit();
 
-        Spliterator<TransCaixa> splitTxCaixa4 = null;
-        if (splitTxCaixa3 != null) splitTxCaixa4 = splitTxCaixa3.trySplit();
 
-        splitTxCaixa1.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa2.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa3.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-        splitTxCaixa4.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
-
+        splitTxCaixa.forEachRemaining(v -> ret.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa1.forEachRemaining(v -> ret1.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa2.forEachRemaining(v -> ret2.updateAndGet(v1 -> (double) (v1 + v.getValor())));
+        splitTxCaixa3.forEachRemaining(v -> ret3.updateAndGet(v1 -> (double) (v1 + v.getValor())));
         return ret.get() + ret1.get() + ret2.get() + ret3.get();
     };
 }
