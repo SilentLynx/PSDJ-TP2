@@ -111,9 +111,11 @@ public class Test7 {
         AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa1M.txt");
 
-        Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
+        Spliterator<TransCaixa> splitTxCaixa = ltc.spliterator();
 
-        Spliterator<TransCaixa> splitTxCaixa2 = splitTxCaixa1.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa1 = splitTxCaixa.trySplit();
+
+        Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
         Spliterator<TransCaixa> splitTxCaixa3 = null;
@@ -175,9 +177,11 @@ public class Test7 {
         AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa2M.txt");
 
-        Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
+        Spliterator<TransCaixa> splitTxCaixa = ltc.spliterator();
 
-        Spliterator<TransCaixa> splitTxCaixa2 = splitTxCaixa1.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa1 = splitTxCaixa.trySplit();
+
+        Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
         Spliterator<TransCaixa> splitTxCaixa3 = null;
@@ -239,9 +243,11 @@ public class Test7 {
         AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa4M.txt");
 
-        Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
+        Spliterator<TransCaixa> splitTxCaixa = ltc.spliterator();
 
-        Spliterator<TransCaixa> splitTxCaixa2 = splitTxCaixa1.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa1 = splitTxCaixa.trySplit();
+
+        Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
         Spliterator<TransCaixa> splitTxCaixa3 = null;
@@ -303,9 +309,11 @@ public class Test7 {
         AtomicReference<Double> ret1 = new AtomicReference<>((double) 0);
         List<TransCaixa> ltc = UtilsTransCaixa.setup("TransCaixa6M.txt");
 
-        Spliterator<TransCaixa> splitTxCaixa1 = ltc.spliterator();
+        Spliterator<TransCaixa> splitTxCaixa = ltc.spliterator();
 
-        Spliterator<TransCaixa> splitTxCaixa2 = splitTxCaixa1.trySplit();
+        Spliterator<TransCaixa> splitTxCaixa1 = splitTxCaixa.trySplit();
+
+        Spliterator<TransCaixa> splitTxCaixa2 = null;
         if (splitTxCaixa1 != null) splitTxCaixa2 = splitTxCaixa1.trySplit();
 
         Spliterator<TransCaixa> splitTxCaixa3 = null;
