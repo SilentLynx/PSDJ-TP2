@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args){
 
         UtilsTransCaixa.specifications();
-/*
+
         System.out.print("\n\nEscolha o teste para correr (1-10/12): ");
         Scanner s = new Scanner(System.in);
         int test = s.nextInt();
@@ -56,8 +56,8 @@ public class Main {
                 Test12.execute();
                 break;
             default: System.out.println("Número de teste inválido");
-        }*/+
+        }
 
-        Test3_1.execute();
+        //Test3_1.execute();
     }
 }

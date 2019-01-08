@@ -41,18 +41,22 @@ public class Test3_1 {
 
         Arrays.sort(d);
 
-        for(int i = 0; i < size; i++){
-            for(int j = i + 1; j < size  || d[i] == d[j]; j++){
-                d[j] = d[j + 1];
-                j--;
-                size--;
+        int[] uniq = new int[10000];
+        uniq[0] = d[0];
+        int j = 0;
+
+        for(int i = 1; i < size; i++){
+            if(d[i] != uniq[j]){
+                j++;
+                uniq[j] = d[i];
             }
         }
 
-        int[] ret = new int[size];
-        System.arraycopy(d, 0, ret, 0, size);
+        int[] ret = new int[j];
 
-        return ret;
+        System.arraycopy(uniq, 0, ret, 0, j);
+
+        return uniq;
     };
 
     /*public static Supplier<int[]> teste3Array1M = () -> {

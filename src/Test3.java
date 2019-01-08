@@ -34,19 +34,19 @@ public class Test3 {
             StringBuilder sb = new StringBuilder();
 
             sb.append("Tipo de dados; No.Casos; Tempo; Tamanho/Resultado \n");
-            sb.append("Array").append(";").append("1M").append(";").append(teste3Arr_1M.getKey().doubleValue()).append(";").append(teste3Arr_1M.getValue()).append("\n");
+            sb.append("Array").append(";").append("1M").append(";").append(teste3Arr_1M.getKey().doubleValue()).append(";").append(teste3Arr_1M.getValue().length).append("\n");
             sb.append("Lista").append(";").append("1M").append(";").append(teste3L_1M.getKey().doubleValue()).append(";").append(teste3L_1M.getValue()).append("\n");
             sb.append("IntStreams").append(";").append("1M").append(";").append(teste3IS_1M.getKey().doubleValue()).append(";").append(teste3IS_1M.getValue()).append("\n");
 
-            sb.append("Array").append(";").append("2M").append(";").append(teste3Arr_2M.getKey().doubleValue()).append(";").append(teste3Arr_2M.getValue()).append("\n");
+            sb.append("Array").append(";").append("2M").append(";").append(teste3Arr_2M.getKey().doubleValue()).append(";").append(teste3Arr_2M.getValue().length).append("\n");
             sb.append("Lista").append(";").append("2M").append(";").append(teste3L_2M.getKey().doubleValue()).append(";").append(teste3L_2M.getValue()).append("\n");
             sb.append("IntStreams").append(";").append("2M").append(";").append(teste3IS_2M.getKey().doubleValue()).append(";").append(teste3IS_2M.getValue()).append("\n");
 
-            sb.append("Array").append(";").append("4M").append(";").append(teste3Arr_4M.getKey().doubleValue()).append(";").append(teste3Arr_4M.getValue()).append("\n");
+            sb.append("Array").append(";").append("4M").append(";").append(teste3Arr_4M.getKey().doubleValue()).append(";").append(teste3Arr_4M.getValue().length).append("\n");
             sb.append("Lista").append(";").append("4M").append(";").append(teste3L_4M.getKey().doubleValue()).append(";").append(teste3L_4M.getValue()).append("\n");
             sb.append("IntStreams").append(";").append("4M").append(";").append(teste3IS_4M.getKey().doubleValue()).append(";").append(teste3IS_4M.getValue()).append("\n");
 
-            sb.append("Array").append(";").append("6M").append(";").append(teste3Arr_6M.getKey().doubleValue()).append(";").append(teste3Arr_6M.getValue()).append("\n");
+            sb.append("Array").append(";").append("6M").append(";").append(teste3Arr_6M.getKey().doubleValue()).append(";").append(teste3Arr_6M.getValue().length).append("\n");
             sb.append("Lista").append(";").append("6M").append(";").append(teste3L_6M.getKey().doubleValue()).append(";").append(teste3L_6M.getValue()).append("\n");
             sb.append("IntStreams").append(";").append("6M").append(";").append(teste3IS_6M.getKey().doubleValue()).append(";").append(teste3IS_6M.getValue()).append("\n");
 
@@ -87,7 +87,7 @@ public class Test3 {
         return ret;
     };*/
 
-    public static Supplier<int[]> teste3Array1M = () -> {
+    /*public static Supplier<int[]> teste3Array1M = () -> {
         int size = 1000000;
         int[] d = new int[size];
         Random r = new Random();
@@ -102,6 +102,38 @@ public class Test3 {
         int[] ret = Arrays.stream(d).distinct().toArray();
 
         return ret;
+    };*/
+
+    public static Supplier<int[]> teste3Array1M = () -> {
+        int size = 1000000;
+        int[] d = new int[size];
+        Random r = new Random();
+
+
+        for(int i = 0; i < size; i++){
+            do
+                d[i] = r.nextInt(10000);
+            while(d[i] == 0);
+        }
+
+        Arrays.sort(d);
+
+        int[] uniq = new int[10000];
+        uniq[0] = d[0];
+        int j = 0;
+
+        for(int i = 1; i < size; i++){
+            if(d[i] != uniq[j]){
+                j++;
+                uniq[j] = d[i];
+            }
+        }
+
+        int[] ret = new int[j];
+
+        System.arraycopy(uniq, 0, ret, 0, j);
+
+        return uniq;
     };
 
     public static Supplier<List> teste3List1M = () -> {
@@ -183,9 +215,24 @@ public class Test3 {
             while(d[i] == 0);
         }
 
-        int[] ret = Arrays.stream(d).distinct().toArray();
+        Arrays.sort(d);
 
-        return ret;
+        int[] uniq = new int[10000];
+        uniq[0] = d[0];
+        int j = 0;
+
+        for(int i = 1; i < size; i++){
+            if(d[i] != uniq[j]){
+                j++;
+                uniq[j] = d[i];
+            }
+        }
+
+        int[] ret = new int[j];
+
+        System.arraycopy(uniq, 0, ret, 0, j);
+
+        return uniq;
     };
 
     public static Supplier<List> teste3List4M = () -> {
@@ -225,9 +272,24 @@ public class Test3 {
             while(d[i] == 0);
         }
 
-        int[] ret = Arrays.stream(d).distinct().toArray();
+        Arrays.sort(d);
 
-        return ret;
+        int[] uniq = new int[10000];
+        uniq[0] = d[0];
+        int j = 0;
+
+        for(int i = 1; i < size; i++){
+            if(d[i] != uniq[j]){
+                j++;
+                uniq[j] = d[i];
+            }
+        }
+
+        int[] ret = new int[j];
+
+        System.arraycopy(uniq, 0, ret, 0, j);
+
+        return uniq;
     };
 
     public static Supplier<List> teste3List6M = () -> {
