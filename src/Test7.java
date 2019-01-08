@@ -39,24 +39,24 @@ public class Test7 {
             StringBuilder sb = new StringBuilder();
 
             sb.append("Versao Java; Tamanho Data Set; No.Casos; Tempo; Tamanho/Resultado \n");
-            sb.append("7").append(";").append("Total").append(";").append("1M").append(";").append(test07stream_1M.getKey().doubleValue()).append(";").append(test07fe_1M.getValue().doubleValue()).append("\n");
+            sb.append("7").append(";").append("Total").append(";").append("1M").append(";").append(test07fe_1M.getKey().doubleValue()).append(";").append(test07fe_1M.getValue().doubleValue()).append("\n");
             sb.append("8").append(";").append("Total").append(";").append("1M").append(";").append(test07stream_1M.getKey().doubleValue()).append(";").append(test07stream_1M.getValue().doubleValue()).append("\n");
-            sb.append("9").append(";").append("Total").append(";").append("1M").append(";").append(test07stream_1M.getKey().doubleValue()).append(";").append(test07parallel_1M.getValue().doubleValue()).append("\n");
+            sb.append("9").append(";").append("Total").append(";").append("1M").append(";").append(test07parallel_1M.getKey().doubleValue()).append(";").append(test07parallel_1M.getValue().doubleValue()).append("\n");
             sb.append("7").append(";").append("C/Spliterator").append(";").append("1M").append(";").append(test07Spliterator_1M.getKey().doubleValue()).append(";").append(test07Spliterator_1M.getValue().doubleValue()).append("\n");
 
-            sb.append("7").append(";").append("Total").append(";").append("2M").append(";").append(test07stream_2M.getKey().doubleValue()).append(";").append(test07fe_2M.getValue().doubleValue()).append("\n");
+            sb.append("7").append(";").append("Total").append(";").append("2M").append(";").append(test07fe_2M.getKey().doubleValue()).append(";").append(test07fe_2M.getValue().doubleValue()).append("\n");
             sb.append("8").append(";").append("Total").append(";").append("2M").append(";").append(test07stream_2M.getKey().doubleValue()).append(";").append(test07stream_2M.getValue().doubleValue()).append("\n");
-            sb.append("9").append(";").append("Total").append(";").append("2M").append(";").append(test07stream_2M.getKey().doubleValue()).append(";").append(test07parallel_2M.getValue().doubleValue()).append("\n");
+            sb.append("9").append(";").append("Total").append(";").append("2M").append(";").append(test07parallel_2M.getKey().doubleValue()).append(";").append(test07parallel_2M.getValue().doubleValue()).append("\n");
             sb.append("7").append(";").append("C/Spliterator").append(";").append("2M").append(";").append(test07Spliterator_2M.getKey().doubleValue()).append(";").append(test07Spliterator_2M.getValue().doubleValue()).append("\n");
 
-            sb.append("7").append(";").append("Total").append(";").append("4M").append(";").append(test07stream_4M.getKey().doubleValue()).append(";").append(test07fe_4M.getValue().doubleValue()).append("\n");
+            sb.append("7").append(";").append("Total").append(";").append("4M").append(";").append(test07fe_4M.getKey().doubleValue()).append(";").append(test07fe_4M.getValue().doubleValue()).append("\n");
             sb.append("8").append(";").append("Total").append(";").append("4M").append(";").append(test07stream_4M.getKey().doubleValue()).append(";").append(test07stream_4M.getValue().doubleValue()).append("\n");
-            sb.append("9").append(";").append("Total").append(";").append("4M").append(";").append(test07stream_4M.getKey().doubleValue()).append(";").append(test07parallel_4M.getValue().doubleValue()).append("\n");
+            sb.append("9").append(";").append("Total").append(";").append("4M").append(";").append(test07parallel_4M.getKey().doubleValue()).append(";").append(test07parallel_4M.getValue().doubleValue()).append("\n");
             sb.append("7").append(";").append("C/Spliterator").append(";").append("4M").append(";").append(test07Spliterator_4M.getKey().doubleValue()).append(";").append(test07Spliterator_4M.getValue().doubleValue()).append("\n");
 
-            sb.append("7").append(";").append("Total").append(";").append("6M").append(";").append(test07stream_6M.getKey().doubleValue()).append(";").append(test07fe_6M.getValue().doubleValue()).append("\n");
+            sb.append("7").append(";").append("Total").append(";").append("6M").append(";").append(test07fe_6M.getKey().doubleValue()).append(";").append(test07fe_6M.getValue().doubleValue()).append("\n");
             sb.append("8").append(";").append("Total").append(";").append("6M").append(";").append(test07stream_6M.getKey().doubleValue()).append(";").append(test07stream_6M.getValue().doubleValue()).append("\n");
-            sb.append("9").append(";").append("Total").append(";").append("6M").append(";").append(test07stream_6M.getKey().doubleValue()).append(";").append(test07parallel_6M.getValue().doubleValue()).append("\n");
+            sb.append("9").append(";").append("Total").append(";").append("6M").append(";").append(test07parallel_6M.getKey().doubleValue()).append(";").append(test07parallel_6M.getValue().doubleValue()).append("\n");
             sb.append("7").append(";").append("C/Spliterator").append(";").append("6M").append(";").append(test07Spliterator_6M.getKey().doubleValue()).append(";").append(test07Spliterator_6M.getValue().doubleValue()).append("\n");
 
             outFile.write(sb.toString());
