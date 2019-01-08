@@ -61,8 +61,6 @@ public class Main {
         AbstractMap.SimpleEntry<Double,Double> test07stream = UtilsTransCaixa.testeBoxGenW(Tests.teste07SetStream);
         AbstractMap.SimpleEntry<Double,Double> test07parallel = UtilsTransCaixa.testeBoxGenW(Tests.teste07SetParallel);
         AbstractMap.SimpleEntry<Double,Double> test07fe = UtilsTransCaixa.testeBoxGenW(Tests.teste07SetFE);
-        AbstractMap.SimpleEntry<Double,String> test08stream = UtilsTransCaixa.testeBoxGenW(Tests.teste08Stream);
-        AbstractMap.SimpleEntry<Double,String> test08 = UtilsTransCaixa.testeBoxGenW(Tests.teste08);
 
         try {
             PrintWriter outFile = new PrintWriter(new File("resultsLists.csv"));
